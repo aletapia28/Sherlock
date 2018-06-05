@@ -1,25 +1,12 @@
 
 #include <stdio.h>
 
-char * readFile2(char *pFileName) {
-    FILE * archivo;
-    char *fileContent;
-    archivo = fopen(pFileName , "r");
-    int size;
 
-    if (archivo == NULL){
-        printf("\nError de apertura del archivo.java \n\n");
-    }
-    else {
+int main(/*char *args*/) {
+    printf("El contenido del archivo es: \n");
+    readFile2("prueba.java");
+   // printf("%s",readFile2("C:\Users\aleta\Desktop\prueba.java"));
 
-        fseek(archivo, 0, SEEK_END); // seek to end of file
-        size = ftell(archivo); // get current file pointer
-        fseek(archivo, 0, SEEK_SET);
+    return 0;
 
-        fileContent = malloc(size);
-        fgets(fileContent,size,archivo);
-    }
-    fclose(archivo);
-
-    return fileContent;
 }
